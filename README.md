@@ -10,4 +10,4 @@ Update: Edit movie details like rating, genre, or description.\
 Delete: Remove movies from the collection.\
 Search and Filter Options: Implement advanced search and filter options (e.g., by genre, year, rating, etc.). Allow users to sort the movie list by different criteria. (e.g., release date, rating).\
 App Goal:\
-Users can have their personal movie collection where they can rate the movies, select if they had or hadn't already watched specific movies and also organize them by different criteria. \
+Users can have their personal movie collection where they can rate the movies, select if they had or hadn't already watched specific movies and also organize them by different criteria.
