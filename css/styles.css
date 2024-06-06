@@ -6,3 +6,58 @@ html {
 *:after {
   box-sizing: inherit;
 }
+
+body{
+  font-family: "Poppins", sans-serif;
+  color:#fff;
+  background-color: #070808;
+  
+}
+
+p,a{
+  font-size: 18px;
+}
+
+.container{
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  margin-bottom: 50px;
+  align-items: baseline;
+}
+
+.nav{
+  display: flex;
+  align-items: baseline;
+}
+
+.logo{
+  margin-right: 20px;
+  font-weight: bold ;
+}
+
+.logo p{
+  font-size: 28px;
+}
+.logo p:hover{
+  cursor: pointer;
+}
+
+.logo-color{
+  color: #80ffdb;
+}
+
+.nav-content a{
+  text-decoration: none;
+  margin-right: 20px;
+  color: #fff;
+}
+.nav-content a:hover{
+  color: #80ffdb;
+}
+
