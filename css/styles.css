@@ -18,6 +18,11 @@ p,a{
   font-size: 18px;
 }
 
+a{
+  color: #fff;
+  text-decoration: none;
+}
+
 .container{
   margin: 0 auto;
   max-width: 80%;
@@ -53,14 +58,65 @@ p,a{
 }
 
 .nav-content a{
-  text-decoration: none;
   margin-right: 20px;
-  color: #fff;
 }
 .nav-content a:hover{
   color: #80ffdb;
 }
 
+.user{
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
+}
+.name p{
+  margin: 0;
+}
+
+.user-img{
+  width: 25px;
+  height: 25px;
+}
+
+
+.main-title{
+  font-size: 50px;
+  margin-bottom: 0;
+}
+
+.bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  padding: 20px 0;
+}
+
+.genres{
+  display: flex;
+  gap: 20px;
+}
+
+.genre, .search-bar, .input-field{
+  background-color: #494942;
+  padding: 5px 10px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  font-size: 14px;
+}
+
+.search-bar{
+  display: flex;
+  align-items: center; 
+}
+
+.input-field{
+  padding: 0;
+  border: none;
+  color: #fff;
+}
 
 catalog-container {
   padding: 20px;
