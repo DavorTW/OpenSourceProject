@@ -6,12 +6,18 @@ html {
 *:after {
   box-sizing: inherit;
 }
+html{
+  font-size: 62.5%;
+}
 
 body{
+  font-size: 1.6rem;
+}
+html,body{
   font-family: "Poppins", sans-serif;
   color:#fff;
   background-color: #070808;
-  
+  height: 100%;
 }
 
 p,a{
@@ -26,6 +32,12 @@ a{
 .container{
   margin: 0 auto;
   max-width: 80%;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .header{
@@ -78,10 +90,28 @@ a{
   height: 25px;
 }
 
+.main{
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
 
 .main-title{
   font-size: 50px;
-  margin-bottom: 0;
+  margin: 0;
+}
+
+.add-movie{
+  background-color: #80ffdb;
+  color: #070808;
+  padding: 10px;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+}
+.add-movie:hover{
+  background-color: #62e1bd
 }
 
 .bar{
@@ -113,9 +143,12 @@ a{
 }
 
 .input-field{
-  padding: 0;
+  padding: 5px;
   border: none;
   color: #fff;
+}
+.input-field:focus{
+  outline: none;
 }
 
 catalog-container {
@@ -124,35 +157,58 @@ catalog-container {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
 .movie-card {
-  background-color: #f0f0f0;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .movie-card img {
+  border-radius: 5%;
+  object-fit: cover;
   width: 100%;
-  height: auto;
-  aspect-ratio: 16/9; /* Ensures consistent aspect ratio */
-  object-fit: cover; /* Ensures the image covers the container without distortion */
+  height: 70%;
+}
+.movie-card img:hover{
+  cursor: pointer;
 }
 
-.movie-card h3 {
+.movie-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.movie-content h3 {
   margin: 15px 0 5px 0;
-  font-size: 1.2em;
+  font-size: 2.2rem;
 }
 
-.movie-card p {
-  margin: 0 0 15px 0;
-  font-size: 1em;
+.movie-content p{
+  margin: 15px 0 5px 0;
+  font-size: 1.6rem;
   color: #666;
+  padding: 0px 5px;
+  border: 2px solid #666;
+}
+
+.tag{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0;
+}
+
+.tag-item{
+  margin: 0 0 15px 0;
+  font-size: 1.6rem;
+  color: #666;
+}
+.tag-item:first-of-type{
+  list-style: none;
 }
 
 .movie-card:hover {

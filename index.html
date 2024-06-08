@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,900;1,400;1,500;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="container">
+<body class="container wrapper">
     <header class="header">
         <div class="nav">
             <div class="logo">
@@ -41,8 +41,10 @@
     </header>
 
 
-    <main>
+    <main class="main">
         <h1 class="main-title">My Movies</h1>
+
+        <a class="add-movie" href="#">Add Movie</a>
     </main>
 
     <div class="bar">
@@ -72,14 +74,16 @@
         <div class="grid-container">
             <div class="movie-card">
                 <img src="source/images.jfif" alt="Movie 1">
-                <h3>Interstellar</h3>
-                <p>PG-13</p>
-            </div>
-            <div class="movie-card">
-                <img src="source/images.jfif" alt="Movie 2">
-                <h3>Interstellar</h3>
-                <p>R</p>
-            </div>
+                <div class="movie-content">
+                    <h3>Interstellar</h3>
+                    <p>PG-13</p>
+                </div>
+                <ul class="tag">
+                    <li class="tag-item">Comedy</li>
+                    <li class="tag-item">2h</li>
+                    <li class="tag-item">2015</li>
+                </ul>
+            </div>  
             <!-- Add more movie cards as needed -->
         </div>
     </div>
