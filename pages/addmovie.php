@@ -16,7 +16,7 @@
     <header class="header">
         <div class="nav">
             <div class="logo">
-                <a href="../index.html"><span class="logo-color">MyMovie</span>List</a>
+                <a href="../index.php"><span class="logo-color">MyMovie</span>List</a>
             </div>
         </div>
 
@@ -34,5 +34,36 @@
             </div>
         </div>
     </header>
+    <div class="form-container">
+        <h2>Add a New Movie</h2>
+        <form id="add-movie-form" enctype="multipart/form-data">
+            <label for="title">Movie Title</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+
+            <label for="image">Movie Image</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+            <img id="image-preview" src="#" alt="Image Preview" style="display: none; width: 100px; height: auto; margin-top: 10px;">
+
+            <label for="age-rating">Age Rating</label>
+            <input type="text" id="age-rating" name="age-rating" required>
+
+            <label for="genre">Genres (comma separated)</label>
+            <input type="text" id="genre" name="genre" required>
+
+            <label for="duration">Duration (minutes)</label>
+            <input type="number" id="duration" name="duration" required>
+
+            <label for="release-date">Release Date (Year)</label>
+            <input type="number" id="release-date" name="release-date" required>
+
+            <button type="submit">Add Movie</button>
+        </form>
+    </div>
+
+    <script src="../js/app.js" ></script>
+
 </body>
 </html>

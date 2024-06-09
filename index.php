@@ -15,7 +15,7 @@
     <header class="header">
         <div class="nav">
             <div class="logo">
-                <a href="index.html"><span class="logo-color">MyMovie</span>List</a>
+                <a href="index.php"><span class="logo-color">MyMovie</span>List</a>
             </div>
 
             <nav class="nav-content">
