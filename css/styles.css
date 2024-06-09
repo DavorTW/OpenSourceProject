@@ -58,10 +58,10 @@ a{
   font-weight: bold ;
 }
 
-.logo p{
+.logo a{
   font-size: 28px;
 }
-.logo p:hover{
+.logo a:hover{
   cursor: pointer;
 }
 
