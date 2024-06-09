@@ -59,7 +59,7 @@
             <input type="text" id="genre" name="genre" required>
 
             <label for="duration">Duration (minutes)</label>
-            <input type="time" id="duration" name="duration" required>
+            <input type="number" id="duration" name="duration" required>
 
             <label for="release-date">Release Date (Year)</label>
             <input type="number" id="release-year" name="release-year" required>

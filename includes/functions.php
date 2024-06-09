@@ -57,7 +57,7 @@ function insertData() {
             if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
                 // Insert movie data into database
                 $stmt = $db->prepare("INSERT INTO movies (title, year, synopsis, duration, rating, imagePath) VALUES (?, ?, ?, ?, ?, ?)");
-                $stmt->bind_param("ssisss", $title, $release_year, $synopsis, $duration, $rating, $target_file);
+                $stmt->bind_param("sssiss", $title, $release_year, $synopsis, $duration, $rating, $target_file);
 
                 if ($stmt->execute()) {
                     echo "New record created successfully";
