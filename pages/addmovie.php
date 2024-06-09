@@ -1,3 +1,8 @@
+<?php 
+    require '../includes/functions.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,12 +41,12 @@
     </header>
     <div class="form-container">
         <h2>Add a New Movie</h2>
-        <form id="add-movie-form" enctype="multipart/form-data">
+        <form id="add-movie-form" action="addmovie.php" method="POST" enctype="multipart/form-data">
             <label for="title">Movie Title</label>
             <input type="text" id="title" name="title" required>
 
-            <label for="description">Description</label>
-            <textarea id="description" name="description" rows="4" required></textarea>
+            <label for="description">Synopsis</label>
+            <textarea id="synopsis" name="synopsis" rows="4" required></textarea>
 
             <label for="image">Movie Image</label>
             <input type="file" id="image" name="image" accept="image/*" required>
@@ -54,10 +59,10 @@
             <input type="text" id="genre" name="genre" required>
 
             <label for="duration">Duration (minutes)</label>
-            <input type="number" id="duration" name="duration" required>
+            <input type="time" id="duration" name="duration" required>
 
             <label for="release-date">Release Date (Year)</label>
-            <input type="number" id="release-date" name="release-date" required>
+            <input type="number" id="release-year" name="release-year" required>
 
             <button type="submit">Add Movie</button>
         </form>

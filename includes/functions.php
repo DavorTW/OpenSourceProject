@@ -1,31 +1,79 @@
 <?php
+function insertData() {
+    // Import credentials
+    require 'database.php';
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $title = $_POST['title'];
+        $genre = $_POST['genre'];
+        $rating = $_POST['age-rating'];
+        $release_year = $_POST['release-year'];
+        $synopsis = $_POST['synopsis'];
+        $duration = $_POST['duration'];
 
-function obtenerServicios(){
-    try {
-        //there are 5 steps to consult a db
-        //1- import credentials
-        require 'database.php';
+        // Handle image upload
+        $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/uploads/"; // Use absolute path
+        if (!is_dir($target_dir)) {
+            if (!mkdir($target_dir, 0755, true)) {
+                die("Failed to create upload directory.");
+            }
+        }
 
-        //2- write sql query
-        $sql = "SELECT * FROM servicios;";
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-        //3-do the query
-        $query = mysqli_query($db, $sql);
+        // Check if image file is an actual image or fake image
+        $check = getimagesize($_FILES["image"]["tmp_name"]);
+        if ($check !== false) {
+            $uploadOk = 1;
+        } else {
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
 
-        return $query;
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
 
-        //4-access to the results
+        // Check file size
+        if ($_FILES["image"]["size"] > 5000000) { // 5000KB limit
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
 
-        // echo "<pre>";
-        // var_dump(mysqli_fetch_assoc($query));
-        // echo "</pre>";
-        
-        //5-close the conection (optional)
+        // Allow certain file formats
+        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+        // If everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                // Insert movie data into database
+                $stmt = $db->prepare("INSERT INTO movies (title, year, synopsis, duration, rating, imagePath) VALUES (?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("ssisss", $title, $release_year, $synopsis, $duration, $rating, $target_file);
+
+                if ($stmt->execute()) {
+                    echo "New record created successfully";
+                } else {
+                    echo "Error: " . $stmt->error;
+                }
+
+                $stmt->close();
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+
         mysqli_close($db);
-    } catch (\Throwable $th) {
-        var_dump($th);
     }
 }
 
-
-obtenerServicios();
+insertData();
+?>
