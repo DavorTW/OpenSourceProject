@@ -44,7 +44,7 @@
     <main class="main">
         <h1 class="main-title">My Movies</h1>
 
-        <a class="add-movie" href="pages/addMovie.html">Add Movie</a>
+        <a class="add-movie" href="pages/addmovie.php">Add Movie</a>
     </main>
 
     <div class="bar">
