@@ -60,6 +60,21 @@ function insertData() {
                 $stmt->bind_param("sssiss", $title, $release_year, $synopsis, $duration, $rating, $target_file);
 
                 if ($stmt->execute()) {
+                    // Retrieve the last inserted movie ID
+                    $movie_id = $db->insert_id;
+
+                    // Parse and insert genres
+                    $genres_array = explode(",", $genre); // Split genres by comma
+                    foreach ($genres_array as $genre_name) {
+                        // Trim whitespace from genre name
+                        $genre_name = trim($genre_name);
+
+                        // Insert genre into genres table
+                        $stmt_genre = $db->prepare("INSERT INTO genres (movieId, genre) VALUES (?, ?)");
+                        $stmt_genre->bind_param("is", $movie_id, $genre_name);
+                        $stmt_genre->execute();
+                        $stmt_genre->close();
+                    }
                     echo "New record created successfully";
                 } else {
                     echo "Error: " . $stmt->error;
