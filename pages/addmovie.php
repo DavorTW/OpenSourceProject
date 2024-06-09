@@ -1,5 +1,5 @@
 <?php 
-    require '../includes/functions.php';
+    require '../includes/insertData.php';
 ?>
 
 
