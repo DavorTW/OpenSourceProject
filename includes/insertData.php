@@ -11,7 +11,9 @@ function insertData() {
         $duration = $_POST['duration'];
 
         // Handle image upload
-        $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/uploads/"; // Use absolute path
+        $base_dir = __DIR__ . '/../'; // Adjust the path to point to the directory containing index.php
+        $target_dir = $base_dir . "uploads/";
+
         if (!is_dir($target_dir)) {
             if (!mkdir($target_dir, 0755, true)) {
                 die("Failed to create upload directory.");
@@ -55,9 +57,12 @@ function insertData() {
         // If everything is ok, try to upload file
         } else {
             if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                // Get relative path
+                $relative_path = "uploads/" . basename($_FILES["image"]["name"]);
+                
                 // Insert movie data into database
                 $stmt = $db->prepare("INSERT INTO movies (title, year, synopsis, duration, rating, imagePath) VALUES (?, ?, ?, ?, ?, ?)");
-                $stmt->bind_param("sssiss", $title, $release_year, $synopsis, $duration, $rating, $target_file);
+                $stmt->bind_param("sssiss", $title, $release_year, $synopsis, $duration, $rating, $relative_path);
 
                 if ($stmt->execute()) {
                     // Retrieve the last inserted movie ID

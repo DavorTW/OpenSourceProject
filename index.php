@@ -1,3 +1,8 @@
+<?php
+    require 'includes/getMovie.php';
+    $result = getMovie();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,7 +77,22 @@
     
     <div class="catalog-container">
         <div class="grid-container">
-            <div class="movie-card">
+        <?php while($movie = mysqli_fetch_assoc($result)) { ?>
+        <div class='movie-card'>
+            <img src="<?php echo $movie['imagePath']; ?>">
+            <div class="movie-content">
+                <h3><?php echo $movie['title']; ?></h3>
+                <p><?php echo $movie['rating']; ?></p>
+            </div>
+            <ul class="tag">
+                <li class="tag-item"></li>
+                <li class="tag-item"><?php echo $movie['duration']; ?> min</li>
+                <li class="tag-item"><?php echo $movie['year']; ?></li>
+            </ul>
+        </div>
+        <?php } ?>
+
+            <!-- <div class="movie-card">
                 <img src="source/images.jfif" alt="Movie 1">
                 <div class="movie-content">
                     <h3>Interstellar</h3>
@@ -83,7 +103,7 @@
                     <li class="tag-item">2h</li>
                     <li class="tag-item">2015</li>
                 </ul>
-            </div>  
+            </div>   -->
             <!-- Add more movie cards as needed -->
         </div>
     </div>
