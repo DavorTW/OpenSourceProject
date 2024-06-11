@@ -7,7 +7,10 @@ function getMovie(){
         require 'database.php';
 
         //2- write sql query
-        $query = "SELECT * FROM movies;";
+        $query = "SELECT movies.*, GROUP_CONCAT(genres.genre SEPARATOR ', ') as genres
+        FROM movies
+        LEFT JOIN genres ON movies.movieId = genres.movieId
+        GROUP BY movies.movieId";
 
         //3-do the query
         $result = mysqli_query($db, $query);

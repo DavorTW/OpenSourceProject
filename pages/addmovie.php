@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyMovieList</title>
-    <link rel ="stylesheet" href="css/normalize.css">
+    <link rel ="stylesheet" href="../css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,900;1,400;1,500;1,900&display=swap" rel="stylesheet">
@@ -64,10 +64,14 @@
             <label for="release-date">Release Date (Year)</label>
             <input type="number" id="release-year" name="release-year" required>
 
-            <button type="submit">Add Movie</button>
+            <button class="submit-button" type="submit">Add Movie</button>
         </form>
     </div>
 
+    <footer class="footer section">
+        <p>&copy; 2024 All rights reserved.</p>
+    </footer>
+    
     <script src="../js/app.js" ></script>
 
 </body>

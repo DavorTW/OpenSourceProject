@@ -77,34 +77,24 @@
     
     <div class="catalog-container">
         <div class="grid-container">
-        <?php while($movie = mysqli_fetch_assoc($result)) { ?>
-        <div class='movie-card'>
-            <img src="<?php echo $movie['imagePath']; ?>">
-            <div class="movie-content">
-                <h3><?php echo $movie['title']; ?></h3>
-                <p><?php echo $movie['rating']; ?></p>
-            </div>
-            <ul class="tag">
-                <li class="tag-item"></li>
-                <li class="tag-item"><?php echo $movie['duration']; ?> min</li>
-                <li class="tag-item"><?php echo $movie['year']; ?></li>
-            </ul>
-        </div>
-        <?php } ?>
-
-            <!-- <div class="movie-card">
-                <img src="source/images.jfif" alt="Movie 1">
-                <div class="movie-content">
-                    <h3>Interstellar</h3>
-                    <p>PG-13</p>
+            <?php while($movie = mysqli_fetch_assoc($result)) { ?>
+                <div class='movie-card'>
+                    <div class="image-container">
+                        <a href="pages/details.php?movieId=<?php echo $movie['movieId']?>" class="details">Details</a>
+                        <img class="card-image" src="<?php echo $movie['imagePath']; ?>">
+                    </div>
+                    
+                    <div class="movie-content">
+                        <h3><?php echo $movie['title']; ?></h3>
+                        <p><?php echo $movie['rating']; ?></p>
+                    </div>
+                    <ul class="tag">
+                        <li class="tag-item"><?php echo $movie['genres']?></li>
+                        <li class="tag-item"><?php echo $movie['duration']; ?> min</li>
+                        <li class="tag-item"><?php echo $movie['year']; ?></li>
+                    </ul>
                 </div>
-                <ul class="tag">
-                    <li class="tag-item">Comedy</li>
-                    <li class="tag-item">2h</li>
-                    <li class="tag-item">2015</li>
-                </ul>
-            </div>   -->
-            <!-- Add more movie cards as needed -->
+            <?php } ?>
         </div>
     </div>
 
