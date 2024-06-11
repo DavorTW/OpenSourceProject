@@ -1,37 +1,24 @@
-Step-by-Step Guide
+Step-by-Step Installation Guide
 
-1. Update and Upgrade System Packages
-Ensure that your system packages are up-to-date.
+1. Set Up Local Web Server
 
-2. Install Apache, MySQL, and PHP
-Install the LAMP stack (Linux, Apache, MySQL, PHP) on your Raspberry Pi.
+2. Download the directory
 
-3. Start and Enable Apache and MySQL Services
-Ensure that the Apache and MySQL services are running.
+3. Set Up the Database
+- Open phpMyAdmin:
+  - Navigate to `http://localhost/phpmyadmin` in your web browser.
+- Create Database:
+  - Click on the "New" button on the left sidebar to create a new database.
+  - Name your database `mymovielist_db` and select `utf8_general_ci` as the collation. Click "Create".
+- Import SQL File:
+  - Select the `mymovielist_db` database you just created.
+  - Click on the "Import" tab.
+  - Click "Choose File" and select the `mymovielist_db.sql` file from the `sql` directory in your project.
+  - Click "Go" to import the SQL file. This will create the necessary tables and insert initial data into your database.
 
-4. Secure MySQL Installation
-Run the security script to remove insecure default settings.
-Follow the prompts to set up the root password and secure your MySQL installation.
+4. Configure Database Connection
 
-5. Create the Database and User
-Log in to MySQL and create the database and user.
-
-6. Import the Database
-
-7. Set Up the Project Directory
-Create a directory for your project in the Apache web directory.
-Ensure the directory structure is correct.
-
-8. Set Correct Permissions
-Set the appropriate permissions for the web directory.
-
-9. Configure the Database Connection
-Ensure your `includes/getMovie.php` file has the correct connection details.
-
-
-10. Test the Application
-Open a web browser on your Raspberry Pi or another device on the same network and navigate to:
-```
-http://<your-raspberry-pi-ip-address>/mymovielist
-```
-You should see the homepage of the movie listing application.
+5. Open the Program
+- Run the Application:
+  - Open your web browser and navigate to `http://localhost/mymovielist`.
+  - You should see the homepage of your movie listing 
