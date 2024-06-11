@@ -41,6 +41,7 @@ function getMovieById($movieId) {
         echo "No movie selected.";
         exit;
     }
+  
 ?>
 
 
@@ -92,7 +93,10 @@ function getMovieById($movieId) {
             <div class="buttons">
                 <button>Add to favorites</button>
                 <button>Add to watched list</button>
-                <button>Delete movie</button>
+                <form action="../includes/deleteMovie.php" method="post" style="display:inline;">
+                    <input type="hidden" name="movieId" value="<?php echo $movie['movieId']; ?>">
+                    <button type="submit" onclick="return confirm('Are you sure you want to delete this movie?');">Delete movie</button>
+                </form>
             </div>
 
         </div>

@@ -45,6 +45,9 @@
         </div>
     </header>
 
+    <?php if (isset($_GET['message'])): ?>
+            <p class="success-message"><?php echo htmlspecialchars($_GET['message']); ?></p>
+    <?php endif; ?>
 
     <main class="main">
         <h1 class="main-title">My Movies</h1>
