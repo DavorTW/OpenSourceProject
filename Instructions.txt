@@ -2,7 +2,7 @@ Step-by-Step Installation Guide
 
 1. Set Up Local Web Server
 
-2. Download the directory
+2. Create the directory and add project files
 
 3. Set Up the Database
 - Open phpMyAdmin:
