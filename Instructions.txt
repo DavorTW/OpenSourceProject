@@ -1,0 +1,24 @@
+Step-by-Step Installation Guide
+
+1. Set Up Local Web Server
+
+2. Download the directory
+
+3. Set Up the Database
+- Open phpMyAdmin:
+  - Navigate to `http://localhost/phpmyadmin` in your web browser.
+- Create Database:
+  - Click on the "New" button on the left sidebar to create a new database.
+  - Name your database `mymovielist_db` and select `utf8_general_ci` as the collation. Click "Create".
+- Import SQL File:
+  - Select the `mymovielist_db` database you just created.
+  - Click on the "Import" tab.
+  - Click "Choose File" and select the `mymovielist_db.sql` file from the `sql` directory in your project.
+  - Click "Go" to import the SQL file. This will create the necessary tables and insert initial data into your database.
+
+4. Configure Database Connection
+
+5. Open the Program
+- Run the Application:
+  - Open your web browser and navigate to `http://localhost/mymovielist`.
+  - You should see the homepage of your movie listing 
